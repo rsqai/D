@@ -164,6 +164,45 @@ def luanxuzhengshujueduizhizhihe(nums):
     return nums[left], nums[right], abs(nums[left] + nums[right])
 
 
+def dezhoupuke(nums):
+    """
+    德州扑克，按顺序判断即可。
+    首先按数字排序
+    牌型1，同花顺：同一花色的顺子，如红桃2红桃3红桃4红桃5红桃6。
+        判断是否等于min, min+1, min+2, min+3, min+4且花色相等
+    牌型2，四条：四张相同数字 + 单张，如红桃A黑桃A梅花A方块A + 黑桃K。
+        遍历并计数，有且仅有四个相同数字即可
+    牌型3，葫芦：三张相同数字 + 一对，如红桃5黑桃5梅花5 + 方块9梅花9。
+        遍历并计数，有三个相同数字 & 有两个相同数字
+    牌型4，同花：同一花色，如方块3方块7方块10方块J方块Q。
+        只需要判断是是否同一花色即可
+    牌型5，顺子：花色不一样的顺子，如红桃2黑桃3红桃4红桃5方块6。
+        判断是否等于min, min+1, min+2, min+3, min+4且花色不同
+    牌型6，三条：三张相同 + 两张单。
+        遍历并计数，有三个相同数字 & 其他的数字只有一张
+    牌型7，其他。
+    :param nums:
+    :return:
+    """
+
+
+def kaopudeche(n):
+    """
+    任何数字位置遇到数字4就直接跳过,输入变换后的数字，输出本来的值
+    :param n:
+    :return:
+    """
+    # todo: 相当于司机的计数中没有数字4，也就是9进制，故本题其实是9进制转10进制
+    n_str = str(n)
+    s = 0
+    for i in range(1, len(n_str) + 1):
+        n_int = int(n_str[-i])
+        if n_int > 4:
+            n_int -= 1
+        s = s + n_int * (9 ** (i - 1))
+    return s
+
+
 if __name__ == '__main__':
     # print(longestCommonSubsequence("abcde", "ace"))
     # print(panduanzixulie("abc", "abcaybec"))
@@ -171,8 +210,12 @@ if __name__ == '__main__':
     # print(zhaopengyou([100, 95]))
     # print(zhaopengyou([123, 124, 125, 121, 119, 122, 126, 123]))
     # print(zimupaixu("xyxyXX"))
-    print(luanxuzhengshujueduizhizhihe([-1, -3, 7, 5, 11, 15]))
-    print(luanxuzhengshujueduizhizhihe([7, 5, 11, 15]))
-    print(luanxuzhengshujueduizhizhihe([-7, -5, -11, -15]))
-    print(luanxuzhengshujueduizhizhihe([0, 0, 0, 0]))
+    # print(luanxuzhengshujueduizhizhihe([-1, -3, 7, 5, 11, 15]))
+    # print(luanxuzhengshujueduizhizhihe([7, 5, 11, 15]))
+    # print(luanxuzhengshujueduizhizhihe([-7, -5, -11, -15]))
+    # print(luanxuzhengshujueduizhizhihe([0, 0, 0, 0]))
+    print(kaopudeche(5))
+    print(kaopudeche(17))
+    print(kaopudeche(100))
+    print(kaopudeche(500))
     pass
