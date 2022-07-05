@@ -203,6 +203,13 @@ def kaopudeche(n):
     return s
 
 
+def liushuixian(m, nums):
+    """
+    m条产线，调度系统，在安排作业时，总是优先执行处理时间最短的作业。
+    计算处理完所有作业的耗时为多少
+    """
+
+
 if __name__ == '__main__':
     # print(longestCommonSubsequence("abcde", "ace"))
     # print(panduanzixulie("abc", "abcaybec"))
@@ -214,8 +221,9 @@ if __name__ == '__main__':
     # print(luanxuzhengshujueduizhizhihe([7, 5, 11, 15]))
     # print(luanxuzhengshujueduizhizhihe([-7, -5, -11, -15]))
     # print(luanxuzhengshujueduizhizhihe([0, 0, 0, 0]))
-    print(kaopudeche(5))
-    print(kaopudeche(17))
-    print(kaopudeche(100))
-    print(kaopudeche(500))
+    # print(kaopudeche(5))
+    # print(kaopudeche(17))
+    # print(kaopudeche(100))
+    # print(kaopudeche(500))
+    print(liushuixian(3, [8, 4, 3, 2, 10]))
     pass
